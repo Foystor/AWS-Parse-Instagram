@@ -11,18 +11,32 @@
         <item>@id/cast_button_type_empty</item>
         <item>@id/cast_button_type_play_pause_toggle</item>
     </array>
+    <attr format="reference" name="MediaRouteControllerWindowBackground"/>
     <attr format="reference" name="castExpandedControllerToolbarStyle"/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
+    <attr format="reference" name="mediaRouteAudioTrackDrawable"/>
+    <attr format="reference" name="mediaRouteBluetoothIconDrawable"/>
     <attr format="reference" name="mediaRouteButtonStyle"/>
     <attr format="reference" name="mediaRouteCastDrawable"/>
+    <attr format="reference" name="mediaRouteChooserPrimaryTextStyle"/>
+    <attr format="reference" name="mediaRouteChooserSecondaryTextStyle"/>
+    <attr format="reference" name="mediaRouteCloseDrawable"/>
+    <attr format="reference" name="mediaRouteCollapseGroupDrawable"/>
     <attr format="reference" name="mediaRouteConnectingDrawable"/>
+    <attr format="reference" name="mediaRouteControllerPrimaryTextStyle"/>
+    <attr format="reference" name="mediaRouteControllerSecondaryTextStyle"/>
+    <attr format="reference" name="mediaRouteControllerTitleTextStyle"/>
+    <attr format="reference" name="mediaRouteDefaultIconDrawable"/>
+    <attr format="reference" name="mediaRouteExpandGroupDrawable"/>
     <attr format="reference" name="mediaRouteOffDrawable"/>
     <attr format="reference" name="mediaRouteOnDrawable"/>
     <attr format="reference" name="mediaRoutePauseDrawable"/>
     <attr format="reference" name="mediaRoutePlayDrawable"/>
-    <attr format="reference" name="mediaRouteSettingsDrawable"/>
+    <attr format="reference" name="mediaRouteSpeakerGroupIconDrawable"/>
+    <attr format="reference" name="mediaRouteSpeakerIconDrawable"/>
+    <attr format="reference" name="mediaRouteTvIconDrawable"/>
     <attr format="string" name="title"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
@@ -230,7 +244,12 @@
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <dimen name="mr_media_route_controller_art_max_height">320dp</dimen>
+    <dimen name="mr_controller_volume_group_list_item_height">68dp</dimen>
+    <dimen name="mr_controller_volume_group_list_item_icon_size">24dp</dimen>
+    <dimen name="mr_controller_volume_group_list_max_height">288dp</dimen>
+    <dimen name="mr_controller_volume_group_list_padding_top">16dp</dimen>
+    <dimen name="mr_dialog_fixed_width_major">320dp</dimen>
+    <dimen name="mr_dialog_fixed_width_minor">320dp</dimen>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
@@ -274,6 +293,9 @@
     <integer name="cancel_button_image_alpha">127</integer>
     <integer name="cast_libraries_material_featurehighlight_pulse_base_alpha">138</integer>
     <integer name="google_play_services_version">9452000</integer>
+    <integer name="mr_controller_volume_group_list_animation_duration_ms">400</integer>
+    <integer name="mr_controller_volume_group_list_fade_in_duration_ms">400</integer>
+    <integer name="mr_controller_volume_group_list_fade_out_duration_ms">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -357,15 +379,19 @@
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
     <string name="hello_world">Hello World!</string>
-    <string name="mr_media_route_button_content_description">Cast</string>
-    <string name="mr_media_route_chooser_searching">Searching for devices\u2026</string>
-    <string name="mr_media_route_chooser_title">Connect to device</string>
-    <string name="mr_media_route_controller_disconnect">Disconnect</string>
-    <string name="mr_media_route_controller_no_info_available">No info available</string>
-    <string name="mr_media_route_controller_pause">Pause</string>
-    <string name="mr_media_route_controller_play">Play</string>
-    <string name="mr_media_route_controller_settings_description">Route settings</string>
-    <string name="mr_media_route_controller_stop">Stop casting</string>
+    <string name="mr_button_content_description">Cast button</string>
+    <string name="mr_chooser_searching">Finding devices</string>
+    <string name="mr_chooser_title">Cast to</string>
+    <string name="mr_controller_casting_screen">Casting screen</string>
+    <string name="mr_controller_close_description">Close</string>
+    <string name="mr_controller_collapse_group">Collapse</string>
+    <string name="mr_controller_disconnect">Disconnect</string>
+    <string name="mr_controller_expand_group">Expand</string>
+    <string name="mr_controller_no_info_available">No info available</string>
+    <string name="mr_controller_no_media_selected">No media selected</string>
+    <string name="mr_controller_pause">Pause</string>
+    <string name="mr_controller_play">Play</string>
+    <string name="mr_controller_stop">Stop casting</string>
     <string name="mr_system_route_name">System</string>
     <string name="mr_user_route_category_name">Devices</string>
     <string name="parse_app_id">YOUR_APPLICATION_ID</string>
@@ -1628,26 +1654,67 @@
     <item name="android:backgroundDimEnabled">false</item>
   </style>
     <style name="Theme.MediaRouter" parent="">
+        <item name="android:windowNoTitle">false</item>
         <item name="mediaRouteButtonStyle">@style/Widget.MediaRouter.MediaRouteButton</item>
 
+        <item name="MediaRouteControllerWindowBackground">@drawable/mr_dialog_material_background_dark</item>
         <item name="mediaRouteOffDrawable">@drawable/ic_media_route_off_mono_dark</item>
         <item name="mediaRouteConnectingDrawable">@drawable/mr_ic_media_route_connecting_mono_dark</item>
         <item name="mediaRouteOnDrawable">@drawable/ic_media_route_on_mono_dark</item>
-        <item name="mediaRouteSettingsDrawable">@drawable/mr_ic_settings_dark</item>
+        <item name="mediaRouteCloseDrawable">@drawable/mr_ic_close_dark</item>
         <item name="mediaRoutePlayDrawable">@drawable/mr_ic_play_dark</item>
         <item name="mediaRoutePauseDrawable">@drawable/mr_ic_pause_dark</item>
         <item name="mediaRouteCastDrawable">@drawable/mr_ic_cast_dark</item>
+        <item name="mediaRouteAudioTrackDrawable">@drawable/ic_audiotrack</item>
+        <item name="mediaRouteDefaultIconDrawable">@drawable/ic_cast_white</item>
+        <item name="mediaRouteBluetoothIconDrawable">@drawable/ic_bluetooth_white</item>
+        <item name="mediaRouteTvIconDrawable">@drawable/ic_tv_dark</item>
+        <item name="mediaRouteSpeakerIconDrawable">@drawable/ic_speaker_dark</item>
+        <item name="mediaRouteSpeakerGroupIconDrawable">@drawable/ic_speaker_group_dark</item>
+        <item name="mediaRouteChooserPrimaryTextStyle">@style/Widget.MediaRouter.ChooserText.Primary.Dark</item>
+        <item name="mediaRouteChooserSecondaryTextStyle">@style/Widget.MediaRouter.ChooserText.Secondary.Dark</item>
+        <item name="mediaRouteControllerTitleTextStyle">@style/Widget.MediaRouter.ControllerText.Title.Dark</item>
+        <item name="mediaRouteControllerPrimaryTextStyle">@style/Widget.MediaRouter.ControllerText.Primary.Dark</item>
+        <item name="mediaRouteControllerSecondaryTextStyle">@style/Widget.MediaRouter.ControllerText.Secondary.Dark</item>
     </style>
-    <style name="Theme.MediaRouter.Light" parent="">
+    <style name="Theme.MediaRouter.Light">
         <item name="mediaRouteButtonStyle">@style/Widget.MediaRouter.Light.MediaRouteButton</item>
 
+        <item name="MediaRouteControllerWindowBackground">@drawable/mr_dialog_material_background_light</item>
         <item name="mediaRouteOffDrawable">@drawable/ic_cast_off_light</item>
         <item name="mediaRouteConnectingDrawable">@drawable/mr_ic_media_route_connecting_mono_light</item>
         <item name="mediaRouteOnDrawable">@drawable/ic_cast_on_light</item>
-        <item name="mediaRouteSettingsDrawable">@drawable/mr_ic_settings_light</item>
+        <item name="mediaRouteCloseDrawable">@drawable/mr_ic_close_light</item>
         <item name="mediaRoutePlayDrawable">@drawable/mr_ic_play_light</item>
         <item name="mediaRoutePauseDrawable">@drawable/mr_ic_pause_light</item>
         <item name="mediaRouteCastDrawable">@drawable/mr_ic_cast_light</item>
+        <item name="mediaRouteAudioTrackDrawable">@drawable/mr_ic_audiotrack_light</item>
+        <item name="mediaRouteDefaultIconDrawable">@drawable/ic_cast_grey</item>
+        <item name="mediaRouteBluetoothIconDrawable">@drawable/ic_bluetooth_grey</item>
+        <item name="mediaRouteTvIconDrawable">@drawable/ic_tv_light</item>
+        <item name="mediaRouteSpeakerIconDrawable">@drawable/ic_speaker_light</item>
+        <item name="mediaRouteSpeakerGroupIconDrawable">@drawable/ic_speaker_group_light</item>
+        <item name="mediaRouteChooserPrimaryTextStyle">@style/Widget.MediaRouter.ChooserText.Primary.Light</item>
+        <item name="mediaRouteChooserSecondaryTextStyle">@style/Widget.MediaRouter.ChooserText.Secondary.Light</item>
+        <item name="mediaRouteControllerTitleTextStyle">@style/Widget.MediaRouter.ControllerText.Title.Light</item>
+        <item name="mediaRouteControllerPrimaryTextStyle">@style/Widget.MediaRouter.ControllerText.Primary.Light</item>
+        <item name="mediaRouteControllerSecondaryTextStyle">@style/Widget.MediaRouter.ControllerText.Secondary.Light</item>
+    </style>
+    <style name="Theme.MediaRouter.Light.DarkControlPanel">
+        <item name="mediaRoutePlayDrawable">@drawable/mr_ic_play_dark</item>
+        <item name="mediaRoutePauseDrawable">@drawable/mr_ic_pause_dark</item>
+        <item name="mediaRouteCastDrawable">@drawable/mr_ic_cast_dark</item>
+        <item name="mediaRouteAudioTrackDrawable">@drawable/ic_audiotrack</item>
+        <item name="mediaRouteControllerPrimaryTextStyle">@style/Widget.MediaRouter.ControllerText.Primary.Dark</item>
+        <item name="mediaRouteControllerSecondaryTextStyle">@style/Widget.MediaRouter.ControllerText.Secondary.Dark</item>
+    </style>
+    <style name="Theme.MediaRouter.LightControlPanel">
+        <item name="mediaRoutePlayDrawable">@drawable/mr_ic_play_light</item>
+        <item name="mediaRoutePauseDrawable">@drawable/mr_ic_pause_light</item>
+        <item name="mediaRouteCastDrawable">@drawable/mr_ic_cast_light</item>
+        <item name="mediaRouteAudioTrackDrawable">@drawable/mr_ic_audiotrack_light</item>
+        <item name="mediaRouteControllerPrimaryTextStyle">@style/Widget.MediaRouter.ControllerText.Primary.Light</item>
+        <item name="mediaRouteControllerSecondaryTextStyle">@style/Widget.MediaRouter.ControllerText.Secondary.Light</item>
     </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
@@ -1781,20 +1848,63 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
+    <style name="Widget.MediaRouter.ChooserText" parent="">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Primary">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Primary.Dark">
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Primary.Light">
+        <item name="android:textColor">#DE000000</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Secondary">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Secondary.Dark">
+        <item name="android:textColor">#8AFFFFFF</item>
+    </style>
+    <style name="Widget.MediaRouter.ChooserText.Secondary.Light">
+        <item name="android:textColor">#8A000000</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText" parent="Widget.MediaRouter.ChooserText"/>
+    <style name="Widget.MediaRouter.ControllerText.Primary">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Primary.Dark">
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Primary.Light">
+        <item name="android:textColor">#DE000000</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Secondary">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Secondary.Dark">
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Secondary.Light">
+        <item name="android:textColor">#DE000000</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Title">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Title.Dark">
+        <item name="android:textColor">#FFFFFFFF</item>
+    </style>
+    <style name="Widget.MediaRouter.ControllerText.Title.Light">
+        <item name="android:textColor">#DE000000</item>
+    </style>
     <style name="Widget.MediaRouter.Light.MediaRouteButton" parent="Widget.AppCompat.Light.ActionButton">
-        <item name="android:minWidth">56dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:padding">0dp</item>
-        <item name="android:focusable">true</item>
-        <item name="android:contentDescription">@string/mr_media_route_button_content_description</item>
+        <item name="android:contentDescription">@string/mr_button_content_description</item>
         <item name="externalRouteEnabledDrawable">@drawable/mr_ic_media_route_mono_light</item>
     </style>
     <style name="Widget.MediaRouter.MediaRouteButton" parent="Widget.AppCompat.ActionButton">
-        <item name="android:minWidth">56dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="android:padding">0dp</item>
-        <item name="android:focusable">true</item>
-        <item name="android:contentDescription">@string/mr_media_route_button_content_description</item>
+        <item name="android:contentDescription">@string/mr_button_content_description</item>
         <item name="externalRouteEnabledDrawable">@drawable/mr_ic_media_route_mono_dark</item>
     </style>
     <declare-styleable name="ActionBar"><attr name="navigationMode"><enum name="normal" value="0"/><enum name="listMode" value="1"/><enum name="tabMode" value="2"/></attr><attr name="displayOptions"><flag name="none" value="0"/><flag name="useLogo" value="0x1"/><flag name="showHome" value="0x2"/><flag name="homeAsUp" value="0x4"/><flag name="showTitle" value="0x8"/><flag name="showCustom" value="0x10"/><flag name="disableHome" value="0x20"/></attr><attr name="title"/><attr format="string" name="subtitle"/><attr format="reference" name="titleTextStyle"/><attr format="reference" name="subtitleTextStyle"/><attr format="reference" name="icon"/><attr format="reference" name="logo"/><attr format="reference" name="divider"/><attr format="reference" name="background"/><attr format="reference|color" name="backgroundStacked"/><attr format="reference|color" name="backgroundSplit"/><attr format="reference" name="customNavigationLayout"/><attr name="height"/><attr format="reference" name="homeLayout"/><attr format="reference" name="progressBarStyle"/><attr format="reference" name="indeterminateProgressStyle"/><attr format="dimension" name="progressBarPadding"/><attr name="homeAsUpIndicator"/><attr format="dimension" name="itemPadding"/><attr format="boolean" name="hideOnContentScroll"/><attr format="dimension" name="contentInsetStart"/><attr format="dimension" name="contentInsetEnd"/><attr format="dimension" name="contentInsetLeft"/><attr format="dimension" name="contentInsetRight"/><attr format="dimension" name="elevation"/><attr format="reference" name="popupTheme"/></declare-styleable>
