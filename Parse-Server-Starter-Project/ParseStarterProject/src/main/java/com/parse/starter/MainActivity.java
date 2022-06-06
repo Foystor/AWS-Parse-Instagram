@@ -11,9 +11,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 
 import android.widget.TextView;
@@ -23,10 +27,21 @@ import com.parse.*;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
   Boolean signUpModeActive = true;
   TextView loginTextView;
+  EditText usernameEditText;
+  EditText passwordEditText;
+
+  @Override
+  public boolean onKey(View view, int i, KeyEvent keyEvent) {
+    if (i == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+      signUpClicked(view);
+    }
+
+    return false;
+  }
 
   @Override
   public void onClick(View view) {
@@ -42,13 +57,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signUpButton.setText("Sign Up");
         loginTextView.setText("or, Login");
       }
+    } else if (view.getId() == R.id.logoImageView || view.getId() == R.id.backgroundLayout) {
+      InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+      inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
     }
   }
 
   public void signUpClicked(View view) {
-    EditText usernameEditText = (EditText) findViewById(R.id.usernameEditText);
-    EditText passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-    
     if (usernameEditText.getText().toString().matches("")
             || passwordEditText.getText().toString().matches("")) {
       Toast.makeText(this,"A username and a password are required.",Toast.LENGTH_SHORT).show();
@@ -91,7 +106,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     setContentView(R.layout.activity_main);
 
     loginTextView = (TextView) findViewById(R.id.loginTextView);
+    usernameEditText = (EditText) findViewById(R.id.usernameEditText);
+    passwordEditText = (EditText) findViewById(R.id.passwordEditText);
+    ImageView logoImageView = (ImageView) findViewById(R.id.logoImageView);
+    RelativeLayout backgroundLayout = (RelativeLayout) findViewById(R.id.backgroundLayout);
+
     loginTextView.setOnClickListener(this);
+    logoImageView.setOnClickListener(this);
+    backgroundLayout.setOnClickListener(this);
+    passwordEditText.setOnKeyListener(this);
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
   }
