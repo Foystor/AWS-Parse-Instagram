@@ -18,13 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 
 import android.widget.TextView;
 import android.widget.Toast;
 import com.parse.*;
-
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
@@ -34,12 +31,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   EditText usernameEditText;
   EditText passwordEditText;
 
+  public void showUserList() {
+    Intent intent = new Intent(getApplicationContext(),UserListActivity.class);
+    startActivity(intent);
+  }
+
   @Override
   public boolean onKey(View view, int i, KeyEvent keyEvent) {
     if (i == KeyEvent.KEYCODE_ENTER && keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
       signUpClicked(view);
     }
-
     return false;
   }
 
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           public void done(ParseException e) {
             if (e == null) {
               Log.i("Sign up", "Success");
+              showUserList();
             } else {
               Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           public void done(ParseUser user, ParseException e) {
             if (user != null) {
               Log.i("Login","OK");
+              showUserList();
             } else {
               Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -115,6 +118,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     logoImageView.setOnClickListener(this);
     backgroundLayout.setOnClickListener(this);
     passwordEditText.setOnKeyListener(this);
+
+    if (ParseUser.getCurrentUser() != null) {
+      showUserList();
+    }
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
   }

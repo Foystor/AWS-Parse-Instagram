@@ -8,6 +8,10 @@
         "source": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-mdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/merged_res/debug/layout_activity_user_list.xml.flat",
+        "source": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/layout/activity_user_list.xml"
+    },
+    {
         "merged": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
