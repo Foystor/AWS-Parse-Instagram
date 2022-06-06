@@ -986,6 +986,7 @@ int id intent_data_id 0x7f08006b
 int id intent_extra_data 0x7f08006c
 int id large_icon_uri 0x7f08006d
 int id light 0x7f08006e
+int id linLayout 0x7f0800ee
 int id line1 0x7f08006f
 int id line3 0x7f080070
 int id listMode 0x7f080071
@@ -995,6 +996,7 @@ int id loading_indicator 0x7f080073
 int id loginTextView 0x7f080074
 int id logoImageView 0x7f080075
 int id logo_only 0x7f080076
+int id logout 0x7f0800ef
 int id main_container 0x7f080077
 int id match_global_nicknames 0x7f080078
 int id match_parent 0x7f080079
@@ -1151,6 +1153,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0016
 int layout abc_search_view 0x7f0b0017
 int layout abc_select_dialog_material 0x7f0b0018
 int layout activity_main 0x7f0b0019
+int layout activity_user_feed 0x7f0b0037
 int layout activity_user_list 0x7f0b001a
 int layout cast_expanded_controller_activity 0x7f0b001b
 int layout cast_help_text 0x7f0b001c

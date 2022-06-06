@@ -256,6 +256,10 @@ ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Serve
 	android:name
 		ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/AndroidManifest.xml:30:27-74
 activity#com.parse.starter.UserListActivity
+ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/AndroidManifest.xml:33:9-53
+	android:name
+		ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/AndroidManifest.xml:33:19-51
+activity#com.parse.starter.UserFeedActivity
 ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/AndroidManifest.xml:34:9-53
 	android:name
 		ADDED from /Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/AndroidManifest.xml:34:19-51

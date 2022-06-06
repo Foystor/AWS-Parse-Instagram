@@ -10,3 +10,8 @@ com/parse/starter/UserListActivity.java
  com.parse.starter.UserListActivity
  com.parse.starter.UserListActivity$1
  com.parse.starter.UserListActivity$2
+ com.parse.starter.UserListActivity$3
+com/parse/starter/UserFeedActivity.java
+ com.parse.starter.UserFeedActivity
+ com.parse.starter.UserFeedActivity$1
+ com.parse.starter.UserFeedActivity$1$1

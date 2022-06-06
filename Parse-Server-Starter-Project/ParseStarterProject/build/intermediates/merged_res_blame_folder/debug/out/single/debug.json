@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/merged_res/debug/layout_activity_user_feed.xml.flat",
+        "source": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/layout/activity_user_feed.xml"
+    },
+    {
         "merged": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/build/intermediates/merged_res/debug/drawable_instagram.png.flat",
         "source": "/Users/foystorwan/coding/aws/parse-server-instagram-clone/Parse-Server-Starter-Project/ParseStarterProject/src/main/res/drawable/instagram.png"
     },
