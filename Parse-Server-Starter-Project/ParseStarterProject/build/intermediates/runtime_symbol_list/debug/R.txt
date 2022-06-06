@@ -1068,6 +1068,7 @@ int id seek_bar 0x7f0800bc
 int id seek_bar_controls 0x7f0800bd
 int id select_dialog_listview 0x7f0800be
 int id selectionDetails 0x7f0800bf
+int id share 0x7f0800ed
 int id shortcut 0x7f0800c0
 int id showCustom 0x7f0800c1
 int id showHome 0x7f0800c2
@@ -1179,6 +1180,7 @@ int layout select_dialog_item_material 0x7f0b0033
 int layout select_dialog_multichoice_material 0x7f0b0034
 int layout select_dialog_singlechoice_material 0x7f0b0035
 int layout support_simple_spinner_dropdown_item 0x7f0b0036
+int menu share_menu 0x7f110000
 int mipmap ic_launcher 0x7f0c0000
 int raw gtm_analytics 0x7f0d0000
 int string abc_action_bar_home_description 0x7f0e0000
