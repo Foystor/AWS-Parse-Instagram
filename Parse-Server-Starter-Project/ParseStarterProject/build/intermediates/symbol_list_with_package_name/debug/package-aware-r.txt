@@ -815,6 +815,7 @@ drawable ic_speaker_group_light
 drawable ic_speaker_light
 drawable ic_tv_dark
 drawable ic_tv_light
+drawable instagram
 drawable mr_dialog_material_background_dark
 drawable mr_dialog_material_background_light
 drawable mr_ic_audiotrack_light
@@ -975,6 +976,7 @@ id icon_uri
 id icon_view
 id ifRoom
 id image
+id imageView
 id index_entity_types
 id info
 id instant_message
@@ -990,6 +992,7 @@ id line3
 id listMode
 id list_item
 id loading_indicator
+id loginTextView
 id logo_only
 id main_container
 id match_global_nicknames
@@ -1028,6 +1031,7 @@ id normal
 id omnibox_title_section
 id omnibox_url_section
 id parentPanel
+id passwordEditText
 id place_autocomplete_clear_button
 id place_autocomplete_powered_by_google
 id place_autocomplete_prediction_primary_text
@@ -1067,6 +1071,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signUpButton
 id slide
 id spacer
 id split_action_bar
@@ -1101,6 +1106,7 @@ id topPanel
 id up
 id url
 id useLogo
+id usernameEditText
 id volume_item_container
 id wide
 id withText

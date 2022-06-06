@@ -1,7 +1,8 @@
+com/parse/starter/StarterApplication.java
+ com.parse.starter.StarterApplication
 com/parse/starter/BuildConfig.java
  com.parse.starter.BuildConfig
 com/parse/starter/MainActivity.java
  com.parse.starter.MainActivity
-com/parse/starter/StarterApplication.java
- com.parse.starter.StarterApplication
- com.parse.starter.StarterApplication$1
+ com.parse.starter.MainActivity$1
+ com.parse.starter.MainActivity$2
