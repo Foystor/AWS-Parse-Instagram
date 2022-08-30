@@ -13,7 +13,7 @@ An Instagram Clone that works with the [Parse Server](https://parseplatform.org/
 
 ![demo](demo/demo.gif)
 
-## Functions
+## Features
 
 - Advanced keyboard management
 - Show the user list
@@ -25,7 +25,7 @@ An Instagram Clone that works with the [Parse Server](https://parseplatform.org/
 If you want to run this project on your own server, you must:
 
 1. Launch a [Parse Server instance on AWS](https://aws.amazon.com/marketplace/pp/prodview-gu6judefvlbxg?sr=0-1&ref_=beagle&applicationId=AWSMPContessa#pdp-overview).
-2. [Set up AWS EC2 Parse Server in Android](https://foystor.github.io/2022/03/15/set-up-aws/).
+2. [Set up AWS EC2 Parse Server](https://foystor.github.io/2022/03/15/set-up-aws/).
 3. Initialize the Parser Server in the ```StarterApplication.java``` file:
 
 ```
